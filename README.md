@@ -31,4 +31,4 @@ The CSV file must include the following columns with the header: `,src,dst,time,
 
 ## Run
 
-python main.py --config config/<NameOfYourModel>.yml --model_name <NameOfYourModel> --data <NameOfYourDataset>
+python main.py --config config/\<NameOfYourModel>.yml --model_name \<NameOfYourModel> --data \<NameOfYourDataset>
