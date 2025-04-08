@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 # Enforce tgb to use the given directorty instead of the local directory.
 from tgb.utils import info
-info.PROJ_DIR = '/nfs4/zty/2023-07-TemporalGraph/TGB/'
+info.PROJ_DIR = './DATA/'
 
 from tgb.linkproppred.dataset_pyg import PyGLinkPropPredDataset
 import torch
@@ -33,11 +33,11 @@ def load_data(name, val_ratio=0.15, test_ratio=0.15, nn_ratio=0.1, dim=128):
         df, nfeat, efeat = load_data_TGL(name)
     elif name in TGB_DATASETS:
         logging.info('Loading TGB datasets.')
-        PROJ_DIR = '/nfs4/zty/2023-07-TemporalGraph/TGB/datasets'
+        PROJ_DIR = './DATA/'
         df, nfeat, efeat = load_data_TGB(name)
     elif name in DYG_DATASETS:
         logging.info('Loading DyGLib datasets.')
-        PROJ_DIR = '/nfs4/zty/2023-07-TemporalGraph/DyGLib/processed_data/'
+        PROJ_DIR = './DATA/'
         df, nfeat, efeat = load_data_DyG(name)
     else:
         raise NotImplementedError(name)
@@ -119,7 +119,7 @@ def load_data_TGL(name, val_ratio=0.15, test_ratio=0.15, dim=128):
     return df, nfeat, efeat
 
 def load_data_TGB(name, val_ratio=0.15, test_ratio=0.15, dim=128):
-    TGB_DIR = '/nfs4/zty/2023-07-TemporalGraph/TGB/'
+    TGB_DIR = './DATA/'
     DATA_DIR = f'{TGB_DIR}/datasets/{name}/'
 
     # Download url use `-` to replace `_`.
@@ -160,7 +160,7 @@ def load_data_TGB(name, val_ratio=0.15, test_ratio=0.15, dim=128):
     return df, nfeat, efeat
 
 def load_data_DyG(name, val_ratio=0.15, test_ratio=0.15, dim=128):
-    DyG_DIR = '/nfs4/zty/2023-07-TemporalGraph/DyGLib/processed_data/'
+    DyG_DIR = './DATA/'
     DATA_DIR = f'{DyG_DIR}/{name}/'
 
     # _df: pd.DataFrame, columns: ["u", "i", "ts", "label", "idx"]
